@@ -65,7 +65,7 @@ export default function Hero() {
           >
             <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl animate-pulse"></div>
             <Image
-              src="https://placehold.co/400x400.png"
+              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8cGVyc29ufGVufDB8fHx8MTc1MjM0MjUwNnww&ixlib=rb-4.1.0&q=80&w=1080"
               alt="Astra's profile picture"
               width={400}
               height={400}
