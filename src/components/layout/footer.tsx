@@ -1,7 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import { Github, Linkedin } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Footer() {
+  const [currentYear, setCurrentYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer className="bg-card">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -15,10 +24,10 @@ export default function Footer() {
             </Link>
           </div>
           <div className="text-center text-muted-foreground">
-            <p>&copy; {new Date().getFullYear()} Astra. All rights reserved.</p>
+            {currentYear && <p>&copy; {currentYear} Astra. All rights reserved.</p>}
             <p>Built with ❤️ by Astra</p>
           </div>
-          <div className="w-10 h-6"></div>
+          <div className="w-10 h-6 md:w-auto"></div>
         </div>
       </div>
     </footer>
