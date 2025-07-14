@@ -22,22 +22,13 @@ export const projects = [
     aiHint: "student productivity"
   },
   {
-    title: "LuxeEstate",
-    description: "A luxury real estate platform with immersive property tours and advanced filtering.",
-    image: "https://placehold.co/1200x800.png",
-    tags: ["React", "Next.js", "Tailwind CSS", "Prisma"],
-    liveLink: "#",
-    githubLink: "#",
-    aiHint: "luxury real estate"
-  },
-  {
-    title: "SmileCraft",
-    description: "AI-powered dental simulation app for visualizing cosmetic procedures.",
+    title: "AiCareer",
+    description: "AI career path suggestion tool based on user skills and interests.",
     image: "https://placehold.co/600x400.png",
-    tags: ["Python", "TensorFlow", "React Native"],
+    tags: ["AI", "React", "Python", "Scikit-learn"],
     liveLink: "#",
     githubLink: "#",
-    aiHint: "dental technology"
+    aiHint: "career guidance"
   },
   {
     title: "WellnessPortal",
@@ -47,15 +38,6 @@ export const projects = [
     liveLink: "#",
     githubLink: "#",
     aiHint: "health dashboard"
-  },
-  {
-    title: "AiCareer",
-    description: "AI career path suggestion tool based on user skills and interests.",
-    image: "https://placehold.co/600x400.png",
-    tags: ["AI", "React", "Python", "Scikit-learn"],
-    liveLink: "#",
-    githubLink: "#",
-    aiHint: "career guidance"
   },
 ];
 
@@ -80,7 +62,7 @@ export const ProjectDetailed = ({ project, index }: { project: any, index: numbe
     viewport={{ once: true, amount: 0.2 }}
     variants={containerVariants}
   >
-    <motion.div variants={itemVariants} className={cn(index % 2 === 0 ? "lg:order-first" : "lg:order-last")}>
+    <motion.div variants={itemVariants} className={cn(index % 2 !== 0 ? "lg:order-first" : "lg:order-last")}>
       {project.featured && <p className="text-primary font-semibold mb-2">Featured Project</p>}
       <h3 className="text-4xl font-bold font-headline mb-4">{project.title}</h3>
       <div className="bg-background/30 backdrop-blur-sm p-6 rounded-lg mb-6 border border-white/10 shadow-lg">
@@ -122,6 +104,7 @@ export const ProjectDetailed = ({ project, index }: { project: any, index: numbe
     </motion.div>
   </motion.div>
 );
+
 
 export default function Projects() {
   const projectsToShow = projects.slice(0, 3);
