@@ -35,7 +35,7 @@ export const ProjectDetailed = ({ project, index }: { project: any, index: numbe
     <motion.div variants={itemVariants} className={cn(index % 2 !== 0 ? "lg:order-last" : "")}>
       {project.featured && <p className="text-primary font-semibold mb-2">Featured Project</p>}
       <h3 className="text-4xl font-bold font-headline mb-4">{project.title}</h3>
-      <div className="bg-background/30 backdrop-blur-sm p-6 rounded-lg mb-6 border border-white/10 shadow-lg">
+      <div className="bg-card/50 backdrop-blur-sm p-6 rounded-lg mb-6 border border-primary/20 shadow-lg">
         <p className="text-muted-foreground text-lg">{project.description}</p>
       </div>
       <div className="flex flex-wrap gap-3 mb-6">
@@ -59,14 +59,14 @@ export const ProjectDetailed = ({ project, index }: { project: any, index: numbe
       className="relative group justify-self-center lg:justify-self-auto"
     >
       <div className="absolute -inset-4 bg-primary/10 rounded-xl blur-2xl -z-10 group-hover:blur-3xl transition-all duration-300"></div>
-      <Link href={project.liveLink} target="_blank">
+      <Link href={project.liveLink} target="_blank" className="block w-full max-w-md">
           <Image
               src={project.image}
               alt={project.title}
               width={1000}
               height={600}
               className={cn(
-                "relative rounded-xl border-2 border-primary/20 shadow-2xl transition-transform duration-300 w-full max-w-lg",
+                "relative rounded-xl border-2 border-primary/20 shadow-2xl transition-transform duration-300 w-full",
               )}
               data-ai-hint={project.aiHint}
           />
