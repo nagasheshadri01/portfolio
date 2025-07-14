@@ -32,7 +32,13 @@ export const ProjectDetailed = ({ project, index }: { project: any, index: numbe
     viewport={{ once: true, amount: 0.2 }}
     variants={containerVariants}
   >
-    <motion.div variants={itemVariants} className={cn(index % 2 !== 0 ? "lg:order-last" : "")}>
+    <motion.div 
+      variants={itemVariants} 
+      className={cn(
+        "relative z-10",
+        index % 2 !== 0 ? "lg:order-last lg:ml-[-10%]" : "lg:mr-[-10%]"
+      )}
+    >
       {project.featured && <p className="text-primary font-semibold mb-2">Featured Project</p>}
       <h3 className="text-4xl font-bold font-headline mb-4">{project.title}</h3>
       <div className="bg-card/50 backdrop-blur-sm p-6 rounded-lg mb-6 border border-primary/20 shadow-lg">
@@ -56,10 +62,14 @@ export const ProjectDetailed = ({ project, index }: { project: any, index: numbe
     </motion.div>
     <motion.div
       variants={itemVariants}
-      className="relative group justify-self-center lg:justify-self-auto"
+      className={cn(
+        "relative group w-full max-w-lg",
+        "justify-self-center lg:justify-self-auto",
+        index % 2 !== 0 ? "lg:order-first" : ""
+      )}
     >
       <div className="absolute -inset-4 bg-primary/10 rounded-xl blur-2xl -z-10 group-hover:blur-3xl transition-all duration-300"></div>
-      <Link href={project.liveLink} target="_blank" className="block w-full max-w-md">
+      <Link href={project.liveLink} target="_blank" className="block">
           <Image
               src={project.image}
               alt={project.title}
