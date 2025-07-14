@@ -56,17 +56,17 @@ export const ProjectDetailed = ({ project, index }: { project: any, index: numbe
     </motion.div>
     <motion.div
       variants={itemVariants}
-      className="relative group"
+      className="relative group justify-self-center lg:justify-self-auto"
     >
       <div className="absolute -inset-4 bg-primary/10 rounded-xl blur-2xl -z-10 group-hover:blur-3xl transition-all duration-300"></div>
       <Link href={project.liveLink} target="_blank">
           <Image
               src={project.image}
               alt={project.title}
-              width={1200}
-              height={800}
+              width={1000}
+              height={600}
               className={cn(
-                "relative rounded-xl border-2 border-primary/20 shadow-2xl transition-transform duration-300",
+                "relative rounded-xl border-2 border-primary/20 shadow-2xl transition-transform duration-300 w-full max-w-lg",
               )}
               data-ai-hint={project.aiHint}
           />
