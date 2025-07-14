@@ -36,7 +36,7 @@ export const ProjectDetailed = ({ project, index }: { project: any, index: numbe
       variants={itemVariants} 
       className={cn(
         "relative z-10",
-        index % 2 !== 0 ? "lg:order-last lg:ml-[-10%]" : "lg:mr-[-10%]"
+        index % 2 !== 0 ? "lg:order-last lg:ml-[-30%]" : "lg:mr-[-30%]"
       )}
     >
       {project.featured && <p className="text-primary font-semibold mb-2">Featured Project</p>}
