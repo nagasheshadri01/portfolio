@@ -1,4 +1,3 @@
-
 "use client";
 
 import SectionWrapper from "@/components/ui/section-wrapper";
@@ -26,73 +25,69 @@ const itemVariants = {
 
 export const ProjectDetailed = ({ project, index }: { project: any, index: number }) => (
   <motion.div
-    className="grid lg:grid-cols-2 gap-12 items-center"
+    className="grid md:grid-cols-2 gap-16 items-center"
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true, amount: 0.2 }}
     variants={containerVariants}
   >
-    <motion.div 
-      variants={itemVariants} 
-      className={cn(
-        "relative z-10",
-        index % 2 !== 0 ? "lg:order-last lg:ml-[-20%]" : "lg:mr-[-20%]"
-      )}
-    >
-      {project.featured && <p className="text-primary font-semibold mb-2">Featured Project</p>}
-      <h3 className="text-4xl font-bold font-headline mb-4">{project.title}</h3>
-      <div className="bg-card/50 backdrop-blur-sm p-6 rounded-lg mb-6 border border-primary/20 shadow-lg">
-        <p className="text-muted-foreground text-lg">{project.description}</p>
-      </div>
-      <div className="flex flex-wrap gap-3 mb-6">
-        {project.tags.map((tag) => (
-          <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary border-primary/20 text-sm">
-            {tag}
-          </Badge>
-        ))}
-      </div>
-      <div className="flex items-center gap-4">
-          <Link href={project.liveLink} target="_blank" className="inline-flex items-center gap-2 font-semibold text-foreground hover:text-primary transition-colors">
-            <LinkIcon className="h-5 w-5" /> Live Demo
-          </Link>
-          <Link href={project.githubLink} target="_blank" className="inline-flex items-center gap-2 font-semibold text-foreground hover:text-primary transition-colors">
-            <Github className="h-5 w-5" /> Source Code
-          </Link>
-      </div>
-    </motion.div>
     <motion.div
       variants={itemVariants}
-      className={cn(
-        "relative group w-full max-w-lg",
-        "justify-self-center lg:justify-self-auto",
-        index % 2 !== 0 ? "lg:order-first" : ""
-      )}
+      className={cn("relative group", index % 2 !== 0 && "md:order-last")}
     >
-      <div className="absolute -inset-4 bg-primary/10 rounded-xl blur-2xl -z-10 group-hover:blur-3xl transition-all duration-300"></div>
-      <Link href={project.liveLink} target="_blank" className="block">
+        <div className="absolute -inset-8 bg-primary/10 rounded-full blur-3xl -z-10 opacity-50 group-hover:opacity-75 transition-opacity duration-300" />
+        <Link href={project.liveLink} target="_blank" className="block">
           <Image
               src={project.image}
               alt={project.title}
               width={1000}
               height={600}
-              className={cn(
-                "relative rounded-xl border-2 border-primary/20 shadow-2xl transition-transform duration-300 w-full",
-              )}
+              className="relative rounded-2xl shadow-2xl w-full"
               data-ai-hint={project.aiHint}
           />
-      </Link>
+        </Link>
+    </motion.div>
+    <motion.div 
+      variants={itemVariants} 
+      className="flex flex-col justify-center"
+    >
+      {project.featured && <p className="text-primary font-semibold uppercase tracking-widest mb-2">Featured Project</p>}
+      <h3 className="text-5xl font-bold font-headline mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#E0AAFF] to-[#9D4EDD]">
+        {project.title}
+      </h3>
+      <div className="bg-purple-800/20 backdrop-blur-sm p-6 rounded-xl mb-6 border border-purple-800/30">
+        <p className="text-muted-foreground text-base">{project.description}</p>
+      </div>
+      <div className="flex flex-wrap gap-3 mb-6">
+        {project.tags.map((tag) => (
+          <Badge key={tag} variant="secondary" className="bg-gradient-to-r from-primary to-purple-600 text-primary-foreground border-transparent text-sm">
+            {tag}
+          </Badge>
+        ))}
+      </div>
+      <div className="flex items-center gap-6">
+          <Link href={project.liveLink} target="_blank" className="inline-flex items-center gap-2 font-semibold text-foreground hover:text-primary transition-colors group">
+            <LinkIcon className="h-5 w-5 group-hover:text-primary transition-colors" />
+             Live Demo
+          </Link>
+          <Link href={project.githubLink} target="_blank" className="inline-flex items-center gap-2 font-semibold text-foreground hover:text-primary transition-colors group">
+            <Github className="h-5 w-5 group-hover:text-primary transition-colors" />
+             Source Code
+          </Link>
+      </div>
     </motion.div>
   </motion.div>
 );
-
 
 export default function Projects() {
   const projectsToShow = projects.slice(0, 3);
 
   return (
-    <SectionWrapper id="projects" className="bg-card">
+    <SectionWrapper id="projects" className="bg-gradient-to-br from-[#1A0534] to-[#3D0C6B] !py-16 md:!py-24">
       <div className="text-center">
-        <h2 className="text-4xl font-bold font-headline mb-12">My Projects</h2>
+        <h2 className="text-5xl font-bold text-white mb-16" style={{textShadow: '0 0 15px rgba(255,255,255,0.2)'}}>
+            My Projects
+        </h2>
       </div>
 
       <div className="space-y-24">
