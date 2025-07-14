@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -48,11 +48,16 @@ export default function Hero() {
             </motion.p>
             <motion.div
               variants={itemVariants}
-              className="mt-8 flex justify-center md:justify-start"
+              className="mt-8 flex flex-wrap justify-center md:justify-start gap-4"
             >
               <Button asChild size="lg" className="btn-capsule">
                 <Link href="#projects">
                   View My Work <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="btn-capsule border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                <Link href="#contact">
+                  Contact Me <Mail className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
             </motion.div>
