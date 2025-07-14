@@ -30,7 +30,9 @@ export default function Header() {
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || isMenuOpen ? "bg-background/80 backdrop-blur-sm shadow-lg" : "bg-transparent"
+        scrolled || isMenuOpen
+          ? "bg-background/80 backdrop-blur-sm shadow-lg"
+          : "bg-transparent"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -38,40 +40,70 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link href="#hero" className="text-3xl font-bold font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-400">
+          <Link
+            href="#hero"
+            className="text-3xl font-bold font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-400"
+          >
             Naga Sheshadri
           </Link>
+
+          {/* Desktop nav */}
           <nav className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
-              <Link key={item.name} href={item.href} className="text-muted-foreground hover:text-foreground transition-colors font-medium">
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-muted-foreground hover:text-foreground transition-colors font-medium"
+              >
                 {item.name}
               </Link>
             ))}
-            <Button asChild className="btn-capsule !text-base !font-semibold py-2 px-6">
+
+            {/* Capsule-shaped Contact button */}
+            <Button asChild className="!text-base !font-semibold py-2 px-6 rounded-full">
               <Link href="#contact">Contact Me</Link>
             </Button>
           </nav>
+
+          {/* Mobile menu toggle */}
           <div className="md:hidden">
             <Button onClick={toggleMenu} variant="ghost" size="icon">
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
               <span className="sr-only">Toggle menu</span>
             </Button>
           </div>
         </div>
       </div>
+
+      {/* Mobile nav menu */}
       {isMenuOpen && (
-        <motion.div 
+        <motion.div
           className="md:hidden"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
         >
           <nav className="flex flex-col items-center space-y-4 py-4 border-t border-border">
             {navItems.map((item) => (
-              <Link key={item.name} href={item.href} onClick={toggleMenu} className="text-muted-foreground hover:text-foreground transition-colors font-medium">
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={toggleMenu}
+                className="text-muted-foreground hover:text-foreground transition-colors font-medium"
+              >
                 {item.name}
               </Link>
             ))}
-            <Button asChild className="btn-capsule !text-base !font-semibold py-2 px-6" onClick={toggleMenu}>
+
+            {/* Capsule-shaped Contact button in mobile menu */}
+            <Button
+              asChild
+              className="!text-base !font-semibold py-2 px-6 rounded-full"
+              onClick={toggleMenu}
+            >
               <Link href="#contact">Contact Me</Link>
             </Button>
           </nav>

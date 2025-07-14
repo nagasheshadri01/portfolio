@@ -57,7 +57,7 @@ export default function Hero() {
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-full border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                 <Link href="#contact">
-                  Contact Me <Mail className="ml-2 h-5 w-5" />
+                  Reach Out <Mail className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
             </motion.div>
