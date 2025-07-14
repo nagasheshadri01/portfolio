@@ -80,7 +80,7 @@ export const ProjectDetailed = ({ project, index }: { project: any, index: numbe
 );
 
 export default function Projects() {
-  const projectsToShow = projects.slice(0, 3);
+  const projectsToShow = projects.filter(p => p.featured);
 
   return (
     <SectionWrapper id="projects" className="bg-gradient-to-br from-[#1A0534] to-[#3D0C6B] !py-16 md:!py-24">
