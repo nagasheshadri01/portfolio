@@ -13,7 +13,7 @@ export const projects = [
   {
     title: "AiCareer",
     description: "AI career path suggestion tool based on user skills and interests.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhaSUyMHRlY2hub2xvZ3l8ZW58MHx8fHwxNzUyNDkwOTA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
     tags: ["AI", "React", "Python", "Scikit-learn"],
     liveLink: "#",
     githubLink: "#",
