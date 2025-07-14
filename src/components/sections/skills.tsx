@@ -67,8 +67,8 @@ export default function Skills() {
                 key={category.title}
                 variants={itemVariants}
                 whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="relative flex flex-row items-center bg-card rounded-2xl p-8 shadow-lg overflow-hidden min-h-[180px] border-2 border-transparent hover:shadow-glow"
+                transition={{ duration: 0.2, ease: "easeInOut" }}
+                className="relative flex flex-row items-center bg-card rounded-2xl p-8 shadow-lg overflow-hidden min-h-[180px] hover:shadow-glow"
             >
                 <div className="relative w-20 h-20 mr-6 flex-shrink-0 flex items-center justify-center">
                     {category.icon}
