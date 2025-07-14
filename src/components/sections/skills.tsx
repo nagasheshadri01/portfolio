@@ -1,4 +1,3 @@
-
 "use client";
 
 import SectionWrapper from "@/components/ui/section-wrapper";
@@ -6,7 +5,6 @@ import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import { Code2, Server, BrainCircuit, Blocks } from "lucide-react";
 import React from "react";
-import Image from "next/image";
 
 const skillCategories = [
   {
@@ -49,7 +47,7 @@ const itemVariants = {
 
 export default function Skills() {
   return (
-    <SectionWrapper id="skills">
+    <SectionWrapper id="skills" className="bg-background">
        <div className="relative">
         <div className="text-center mb-12 relative z-10">
             <h2 className="text-4xl font-bold font-headline mb-4">My Tech Toolbox</h2>
@@ -68,13 +66,13 @@ export default function Skills() {
             <motion.div
                 key={category.title}
                 variants={itemVariants}
-                className="relative flex flex-row items-center bg-gradient-to-br from-[#25104a]/80 to-[#21123b]/80 rounded-2xl p-8 shadow-2xl overflow-hidden min-h-[180px] hover:scale-[1.015] transition-transform"
+                className="relative flex flex-row items-center bg-card rounded-2xl p-8 shadow-lg overflow-hidden min-h-[180px] hover:scale-[1.02] hover:shadow-glow transition-all duration-300"
             >
                 <div className="relative w-20 h-20 mr-6 flex-shrink-0 flex items-center justify-center">
                     {category.icon}
                 </div>
                 <div className="flex-1 flex flex-col justify-center">
-                    <h3 className="text-2xl font-bold text-white mb-4">{category.title}</h3>
+                    <h3 className="text-2xl font-bold text-foreground mb-4">{category.title}</h3>
                     <div className="flex flex-wrap gap-2">
                         {category.skills.map((skill) => (
                             <Badge key={skill} variant="secondary" className="text-sm font-medium bg-primary/10 text-primary border-primary/20">
@@ -83,7 +81,6 @@ export default function Skills() {
                         ))}
                     </div>
                 </div>
-                <div className="absolute w-[90%] h-full top-0 left-0 bg-gradient-to-br from-[#8369fd33] via-transparent to-[#9340fc0c] pointer-events-none opacity-60 rounded-2xl z-0" />
             </motion.div>
             ))}
         </motion.div>
