@@ -103,7 +103,7 @@ export default function Projects() {
           <motion.div variants={itemVariants}>
             <p className="text-primary font-semibold mb-2">Featured Project</p>
             <h3 className="text-4xl font-bold font-headline mb-4">{featuredProject.title}</h3>
-            <div className="bg-background/50 p-6 rounded-lg mb-6">
+            <div className="bg-background/50 backdrop-blur-sm p-6 rounded-lg mb-6 border border-white/10">
               <p className="text-muted-foreground text-lg">{featuredProject.description}</p>
             </div>
             <div className="flex flex-wrap gap-3 mb-6">
@@ -125,17 +125,17 @@ export default function Projects() {
           <motion.div 
             variants={itemVariants} 
             className="relative"
-            whileHover={{ scale: 1.02, rotate: -1 }}
+            whileHover={{ scale: 1.02 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
-            <div className="absolute -inset-4 bg-primary/10 rounded-xl blur-2xl"></div>
+            <div className="absolute -inset-4 bg-primary/10 rounded-xl blur-2xl animate-pulse"></div>
             <Link href={featuredProject.liveLink} target="_blank">
                 <Image
                     src={featuredProject.image}
                     alt={featuredProject.title}
                     width={1200}
                     height={800}
-                    className="relative rounded-xl border-2 border-primary/20 shadow-2xl transform -rotate-2"
+                    className="relative rounded-xl border-2 border-primary/20 shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-300"
                     data-ai-hint={featuredProject.aiHint}
                 />
             </Link>
