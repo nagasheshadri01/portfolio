@@ -146,71 +146,72 @@ export default function Projects() {
       
       {/* Other Projects */}
       <motion.div 
-        className="grid grid-cols-1 gap-16 lg:gap-24"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
       >
         {otherProjects.map((project, index) => {
-          // New fancy layout for even-indexed projects
+          // Fancy layout for even-indexed projects
           if (index % 2 === 0) {
-            const isImageLeft = index % 4 === 0; // Alternate image position
             return (
               <motion.div 
                 key={project.title}
                 variants={itemVariants}
-                className="grid lg:grid-cols-2 gap-12 items-center"
+                className="md:col-span-2 lg:col-span-3"
               >
-                <motion.div 
-                  variants={itemVariants} 
-                  className={cn("relative", isImageLeft ? "lg:order-first" : "lg:order-last")}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
-                  <div className="absolute -inset-8 bg-primary/10 rounded-xl blur-2xl -z-10"></div>
-                  <Link href={project.liveLink} target="_blank">
-                      <Image
-                          src={project.image}
-                          alt={project.title}
-                          width={1200}
-                          height={800}
-                          className={cn(
-                            "relative rounded-xl border-2 border-primary/20 shadow-2xl transform hover:rotate-0 transition-transform duration-300",
-                            isImageLeft ? "rotate-2" : "-rotate-2"
-                          )}
-                          data-ai-hint={project.aiHint}
-                      />
-                  </Link>
-                </motion.div>
-                <motion.div variants={itemVariants} className={isImageLeft ? "lg:order-last" : "lg:order-first"}>
-                  <h3 className="text-3xl font-bold font-headline mb-4">{project.title}</h3>
-                  <div className="bg-background/30 backdrop-blur-sm p-6 rounded-lg mb-6 border border-white/10">
-                    <p className="text-muted-foreground">{project.description}</p>
-                  </div>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary border-primary/20">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-4">
-                     <Link href={project.liveLink} target="_blank" className="inline-flex items-center gap-2 font-semibold text-foreground hover:text-primary transition-colors">
-                        <LinkIcon className="h-5 w-5" /> Live
-                      </Link>
-                      <Link href={project.githubLink} target="_blank" className="inline-flex items-center gap-2 font-semibold text-foreground hover:text-primary transition-colors">
-                        <Github className="h-5 w-5" /> Code
-                      </Link>
-                  </div>
-                </motion.div>
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                  <motion.div 
+                    variants={itemVariants} 
+                    className={cn("relative", index % 4 === 0 ? "lg:order-first" : "lg:order-last")}
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  >
+                    <div className="absolute -inset-8 bg-primary/10 rounded-xl blur-2xl -z-10"></div>
+                    <Link href={project.liveLink} target="_blank">
+                        <Image
+                            src={project.image}
+                            alt={project.title}
+                            width={1200}
+                            height={800}
+                            className={cn(
+                              "relative rounded-xl border-2 border-primary/20 shadow-2xl transform hover:rotate-0 transition-transform duration-300",
+                              index % 4 === 0 ? "rotate-2" : "-rotate-2"
+                            )}
+                            data-ai-hint={project.aiHint}
+                        />
+                    </Link>
+                  </motion.div>
+                  <motion.div variants={itemVariants} className={index % 4 === 0 ? "lg:order-last" : "lg:order-first"}>
+                    <h3 className="text-3xl font-bold font-headline mb-4">{project.title}</h3>
+                    <div className="bg-background/30 backdrop-blur-sm p-6 rounded-lg mb-6 border border-white/10">
+                      <p className="text-muted-foreground">{project.description}</p>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.tags.map((tag) => (
+                        <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-4">
+                       <Link href={project.liveLink} target="_blank" className="inline-flex items-center gap-2 font-semibold text-foreground hover:text-primary transition-colors">
+                          <LinkIcon className="h-5 w-5" /> Live
+                        </Link>
+                        <Link href={project.githubLink} target="_blank" className="inline-flex items-center gap-2 font-semibold text-foreground hover:text-primary transition-colors">
+                          <Github className="h-5 w-5" /> Code
+                        </Link>
+                    </div>
+                  </motion.div>
+                </div>
               </motion.div>
             )
           } 
-          // Old card layout for odd-indexed projects
+          // Card layout for odd-indexed projects
           else {
             return (
-              <motion.div key={project.title} variants={itemVariants}>
+              <motion.div key={project.title} variants={itemVariants} className="md:col-span-1">
                 <Card className="bg-background border-2 border-transparent h-full overflow-hidden group transition-all duration-300 hover:border-primary hover:shadow-glow flex flex-col">
                   <div className="overflow-hidden">
                      <Image
@@ -223,12 +224,12 @@ export default function Projects() {
                     />
                   </div>
                   <CardHeader>
-                      <CardTitle className="font-headline text-2xl mb-2 flex items-center justify-between">
+                      <CardTitle className="font-headline text-2xl">
                         {project.title}
                       </CardTitle>
-                      <p className="text-muted-foreground text-sm flex-grow">{project.description}</p>
                   </CardHeader>
-                  <CardContent className="flex-grow pt-4">
+                  <CardContent className="flex-grow">
+                      <p className="text-muted-foreground text-sm flex-grow mb-4">{project.description}</p>
                      <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag) => (
                         <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary border-primary/20">
