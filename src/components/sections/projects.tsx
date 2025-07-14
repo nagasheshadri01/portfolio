@@ -5,11 +5,12 @@ import SectionWrapper from "@/components/ui/section-wrapper";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Github, Link as LinkIcon } from "lucide-react";
+import { Github, Link as LinkIcon, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
 
-const projects = [
+export const projects = [
   {
     title: "Student Companion",
     description: "An all-in-one app for students to manage schedules, assignments, and notes, enhancing productivity and organization.",
@@ -56,15 +57,6 @@ const projects = [
     githubLink: "#",
     aiHint: "career guidance"
   },
-  {
-    title: "EcoTrack",
-    description: "An app for tracking personal carbon footprint and promoting sustainable habits.",
-    image: "https://placehold.co/1200x800.png",
-    tags: ["React Native", "Firebase", "API"],
-    liveLink: "#",
-    githubLink: "#",
-    aiHint: "sustainability environment"
-  }
 ];
 
 const containerVariants = {
@@ -80,8 +72,7 @@ const itemVariants = {
     visible: { y: 0, opacity: 1 },
 };
 
-
-const ProjectDetailed = ({ project, index }: { project: any, index: number }) => (
+export const ProjectDetailed = ({ project, index }: { project: any, index: number }) => (
   <motion.div
     className="grid lg:grid-cols-2 gap-12 items-center mb-24 last:mb-0"
     initial="hidden"
@@ -133,15 +124,24 @@ const ProjectDetailed = ({ project, index }: { project: any, index: number }) =>
 );
 
 export default function Projects() {
+  const projectsToShow = projects.slice(0, 3);
+
   return (
     <SectionWrapper id="projects" className="bg-card">
       <div className="text-center">
         <h2 className="text-4xl font-bold font-headline mb-12">My Projects</h2>
       </div>
 
-      {projects.map((project, index) => (
+      {projectsToShow.map((project, index) => (
         <ProjectDetailed key={project.title} project={project} index={index} />
       ))}
+      <div className="text-center mt-16">
+        <Button asChild size="lg" className="btn-capsule shadow-glow">
+          <Link href="/projects">
+            View More <ArrowRight className="ml-2 h-5 w-5" />
+          </Link>
+        </Button>
+      </div>
     </SectionWrapper>
   );
 }
