@@ -25,7 +25,7 @@ const itemVariants = {
 
 export const ProjectDetailed = ({ project, index }: { project: any, index: number }) => (
   <motion.div
-    className="grid md:grid-cols-2 gap-16 items-center"
+    className="grid md:grid-cols-2 gap-12 items-center"
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true, amount: 0.2 }}
@@ -33,7 +33,7 @@ export const ProjectDetailed = ({ project, index }: { project: any, index: numbe
   >
     <motion.div
       variants={itemVariants}
-      className={cn("relative group", index % 2 !== 0 && "md:order-last")}
+      className={cn("relative group w-full max-w-xl justify-self-center", index % 2 !== 0 && "md:order-last")}
     >
         <div className="absolute -inset-8 bg-primary/10 rounded-full blur-3xl -z-10 opacity-50 group-hover:opacity-75 transition-opacity duration-300" />
         <Link href={project.liveLink} target="_blank" className="block">
@@ -52,7 +52,7 @@ export const ProjectDetailed = ({ project, index }: { project: any, index: numbe
       className="flex flex-col justify-center"
     >
       {project.featured && <p className="text-primary font-semibold uppercase tracking-widest mb-2">Featured Project</p>}
-      <h3 className="text-5xl font-bold font-headline mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#E0AAFF] to-[#9D4EDD]">
+      <h3 className="text-4xl font-bold font-headline mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#E0AAFF] to-[#9D4EDD]">
         {project.title}
       </h3>
       <div className="bg-purple-800/20 backdrop-blur-sm p-6 rounded-xl mb-6 border border-purple-800/30">
