@@ -39,7 +39,7 @@ export default function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="#hero" className="text-3xl font-bold font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-400">
-            Astra
+            Naga Sheshadri
           </Link>
           <nav className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (

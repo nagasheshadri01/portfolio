@@ -38,7 +38,7 @@ export default function Hero() {
               className="text-5xl lg:text-7xl font-bold font-headline bg-clip-text text-transparent bg-gradient-to-br from-primary via-purple-400 to-indigo-400 leading-tight"
               variants={itemVariants}
             >
-              Hey, I’m Astra.
+              Hey, I’m Naga Sheshadri.
             </motion.h1>
             <motion.p
               className="mt-4 text-lg md:text-xl text-muted-foreground max-w-xl mx-auto md:mx-0"
@@ -71,7 +71,7 @@ export default function Hero() {
             <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl animate-pulse"></div>
             <Image
               src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8cGVyc29ufGVufDB8fHx8MTc1MjM0MjUwNnww&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="Astra's profile picture"
+              alt="Naga Sheshadri's profile picture"
               width={400}
               height={400}
               priority
