@@ -2,11 +2,10 @@
 "use client";
 
 import SectionWrapper from "@/components/ui/section-wrapper";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github, Link as LinkIcon } from "lucide-react";
+import { Github, Link as LinkIcon } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -68,8 +67,6 @@ const projects = [
   }
 ];
 
-const detailedProjects = ["Student Companion", "SmileCraft", "AiCareer"];
-
 const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -95,7 +92,7 @@ const ProjectDetailed = ({ project, index }: { project: any, index: number }) =>
     <motion.div variants={itemVariants} className={cn(index % 2 === 0 ? "lg:order-first" : "lg:order-last")}>
       {project.featured && <p className="text-primary font-semibold mb-2">Featured Project</p>}
       <h3 className="text-4xl font-bold font-headline mb-4">{project.title}</h3>
-      <div className="bg-background/30 backdrop-blur-sm p-6 rounded-lg mb-6 border border-white/10">
+      <div className="bg-background/30 backdrop-blur-sm p-6 rounded-lg mb-6 border border-white/10 shadow-lg">
         <p className="text-muted-foreground text-lg">{project.description}</p>
       </div>
       <div className="flex flex-wrap gap-3 mb-6">
@@ -138,79 +135,16 @@ const ProjectDetailed = ({ project, index }: { project: any, index: number }) =>
   </motion.div>
 );
 
-const ProjectCompact = ({ project }: { project: any }) => (
-    <motion.div variants={itemVariants} className="md:col-span-1">
-      <Card className="bg-background border-2 border-transparent h-full overflow-hidden group transition-all duration-300 hover:border-primary hover:shadow-glow flex flex-col">
-        <div className="overflow-hidden">
-            <Image
-              src={project.image}
-              alt={project.title}
-              width={600}
-              height={400}
-              className="w-full object-cover transition-transform duration-300 group-hover:scale-105"
-              data-ai-hint={project.aiHint}
-          />
-        </div>
-        <CardHeader>
-            <CardTitle className="font-headline text-2xl">
-              {project.title}
-            </CardTitle>
-        </CardHeader>
-        <CardContent className="flex-grow">
-            <p className="text-muted-foreground text-sm flex-grow mb-4">{project.description}</p>
-            <div className="flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary border-primary/20">
-                {tag}
-              </Badge>
-            ))}
-          </div>
-        </CardContent>
-        <CardFooter className="pt-4 flex items-center justify-between">
-            <Link href={project.liveLink} target="_blank" className="text-sm font-semibold text-primary inline-flex items-center gap-1 group-hover:underline">
-              View Project <ArrowUpRight className="h-4 w-4" />
-          </Link>
-          <Link href={project.githubLink} target="_blank" className="text-sm font-semibold text-muted-foreground inline-flex items-center gap-1 hover:text-primary transition-colors">
-              <Github className="h-4 w-4" /> Code
-          </Link>
-        </CardFooter>
-      </Card>
-    </motion.div>
-)
-
 export default function Projects() {
-  const featuredProject = projects.find(p => p.featured);
-  const otherProjects = projects.filter(p => !p.featured);
-
-  const detailedLayoutProjects = otherProjects.filter(p => detailedProjects.includes(p.title));
-  const compactLayoutProjects = otherProjects.filter(p => !detailedProjects.includes(p.title));
-
   return (
     <SectionWrapper id="projects" className="bg-card">
       <div className="text-center">
         <h2 className="text-4xl font-bold font-headline mb-12">My Projects</h2>
       </div>
 
-      {/* Featured Project */}
-      {featuredProject && <ProjectDetailed project={featuredProject} index={0} />}
-      
-      {/* Other Detailed Projects */}
-      {detailedLayoutProjects.map((project, index) => (
-        <ProjectDetailed key={project.title} project={project} index={index + 1} />
+      {projects.map((project, index) => (
+        <ProjectDetailed key={project.title} project={project} index={index} />
       ))}
-
-      {/* Compact Projects */}
-      <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-24"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-      >
-        {compactLayoutProjects.map((project) => (
-          <ProjectCompact key={project.title} project={project} />
-        ))}
-      </motion.div>
     </SectionWrapper>
   );
 }
