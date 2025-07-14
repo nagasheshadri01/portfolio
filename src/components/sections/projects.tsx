@@ -124,10 +124,7 @@ const ProjectDetailed = ({ project, index }: { project: any, index: number }) =>
               alt={project.title}
               width={1200}
               height={800}
-              className={cn(
-                "relative rounded-xl border-2 border-primary/20 shadow-2xl transform hover:rotate-0 transition-transform duration-300",
-                index % 2 === 0 ? "-rotate-2" : "rotate-2"
-              )}
+              className="relative rounded-xl border-2 border-primary/20 shadow-2xl transition-transform duration-300"
               data-ai-hint={project.aiHint}
           />
       </Link>
