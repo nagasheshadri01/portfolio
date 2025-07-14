@@ -1,3 +1,4 @@
+
 "use client";
 
 import SectionWrapper from "@/components/ui/section-wrapper";
@@ -48,7 +49,7 @@ const itemVariants = {
 
 export default function Skills() {
   return (
-    <SectionWrapper id="skills" className="bg-card">
+    <SectionWrapper id="skills">
       <div className="text-center">
         <h2 className="text-4xl font-bold font-headline mb-4">My Tech Toolbox</h2>
         <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
@@ -64,9 +65,9 @@ export default function Skills() {
       >
         {skillCategories.map((category) => (
           <motion.div key={category.title} variants={itemVariants}>
-            <Card className="bg-background border-2 border-transparent hover:border-primary hover:shadow-glow transition-all duration-300 h-full">
+            <Card className="bg-card border-2 border-transparent hover:border-primary hover:shadow-glow transition-all duration-300 h-full">
               <CardHeader className="flex-row items-center gap-4">
-                <div className="p-2 bg-card rounded-lg">
+                <div className="p-2 bg-background rounded-lg">
                   {category.icon}
                 </div>
                 <CardTitle className="font-headline text-2xl">{category.title}</CardTitle>
