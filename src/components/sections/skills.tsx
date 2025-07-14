@@ -66,7 +66,7 @@ export default function Skills() {
             <motion.div
                 key={category.title}
                 variants={itemVariants}
-                className="relative flex flex-row items-center bg-card rounded-2xl p-8 shadow-lg overflow-hidden min-h-[180px] hover:scale-[1.02] hover:shadow-glow transition-all duration-300"
+                className="relative flex flex-row items-center bg-card rounded-2xl p-8 shadow-lg overflow-hidden min-h-[180px] border-2 border-transparent hover:border-white hover:scale-[1.02] hover:shadow-glow transition-all duration-300"
             >
                 <div className="relative w-20 h-20 mr-6 flex-shrink-0 flex items-center justify-center">
                     {category.icon}
