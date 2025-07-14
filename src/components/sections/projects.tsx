@@ -33,7 +33,7 @@ export const ProjectDetailed = ({ project, index }: { project: any, index: numbe
   >
     <motion.div
       variants={itemVariants}
-      className={cn("relative group w-full max-w-xl justify-self-center", index % 2 !== 0 && "md:order-last")}
+      className={cn("relative group w-full max-w-lg mx-auto", index % 2 !== 0 && "md:order-last")}
     >
         <div className="absolute -inset-8 bg-primary/10 rounded-full blur-3xl -z-10 opacity-50 group-hover:opacity-75 transition-opacity duration-300" />
         <Link href={project.liveLink} target="_blank" className="block">
@@ -52,13 +52,13 @@ export const ProjectDetailed = ({ project, index }: { project: any, index: numbe
       className="flex flex-col justify-center"
     >
       {project.featured && <p className="text-primary font-semibold uppercase tracking-widest mb-2">Featured Project</p>}
-      <h3 className="text-4xl font-bold font-headline mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#E0AAFF] to-[#9D4EDD]">
+      <h3 className="text-3xl font-bold font-headline mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#E0AAFF] to-[#9D4EDD]">
         {project.title}
       </h3>
-      <div className="bg-purple-800/20 backdrop-blur-sm p-6 rounded-xl mb-6 border border-purple-800/30">
+      <div className="bg-purple-800/20 backdrop-blur-sm p-6 rounded-xl mb-4 border border-purple-800/30">
         <p className="text-muted-foreground text-base">{project.description}</p>
       </div>
-      <div className="flex flex-wrap gap-3 mb-6">
+      <div className="flex flex-wrap gap-3 mb-4">
         {project.tags.map((tag) => (
           <Badge key={tag} variant="secondary" className="bg-gradient-to-r from-primary to-purple-600 text-primary-foreground border-transparent text-sm">
             {tag}
