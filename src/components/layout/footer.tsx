@@ -24,8 +24,8 @@ export default function Footer() {
             </Link>
           </div>
           <div className="text-center text-muted-foreground">
-            {currentYear && <p>&copy; {currentYear} Astra. All rights reserved.</p>}
-            <p>Built with ❤️ by Astra</p>
+            {currentYear && <p>&copy; {currentYear} Naga Sheshadri. All rights reserved.</p>}
+            <p>Built with ❤️ by Naga Sheshadri</p>
           </div>
           <div className="w-10 h-6 md:w-auto"></div>
         </div>
