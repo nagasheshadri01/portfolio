@@ -22,15 +22,6 @@ export const projects = [
     aiHint: "student productivity"
   },
   {
-    title: "AiCareer",
-    description: "AI career path suggestion tool based on user skills and interests.",
-    image: "https://placehold.co/600x400.png",
-    tags: ["AI", "React", "Python", "Scikit-learn"],
-    liveLink: "#",
-    githubLink: "#",
-    aiHint: "career guidance"
-  },
-  {
     title: "WellnessPortal",
     description: "A health and wellness tracking dashboard with personalized meal and workout plans.",
     image: "https://placehold.co/1200x800.png",
@@ -38,6 +29,15 @@ export const projects = [
     liveLink: "#",
     githubLink: "#",
     aiHint: "health dashboard"
+  },
+  {
+    title: "AiCareer",
+    description: "AI career path suggestion tool based on user skills and interests.",
+    image: "https://placehold.co/600x400.png",
+    tags: ["AI", "React", "Python", "Scikit-learn"],
+    liveLink: "#",
+    githubLink: "#",
+    aiHint: "career guidance"
   },
 ];
 
@@ -62,7 +62,7 @@ export const ProjectDetailed = ({ project, index }: { project: any, index: numbe
     viewport={{ once: true, amount: 0.2 }}
     variants={containerVariants}
   >
-    <motion.div variants={itemVariants} className={cn(index % 2 !== 0 ? "lg:order-first" : "lg:order-last")}>
+    <motion.div variants={itemVariants} className={cn(index % 2 === 0 ? "lg:order-last" : "")}>
       {project.featured && <p className="text-primary font-semibold mb-2">Featured Project</p>}
       <h3 className="text-4xl font-bold font-headline mb-4">{project.title}</h3>
       <div className="bg-background/30 backdrop-blur-sm p-6 rounded-lg mb-6 border border-white/10 shadow-lg">
@@ -115,9 +115,12 @@ export default function Projects() {
         <h2 className="text-4xl font-bold font-headline mb-12">My Projects</h2>
       </div>
 
-      {projectsToShow.map((project, index) => (
-        <ProjectDetailed key={project.title} project={project} index={index} />
-      ))}
+      <div className="space-y-24">
+        {projectsToShow.map((project, index) => (
+          <ProjectDetailed key={project.title} project={project} index={index} />
+        ))}
+      </div>
+      
       <div className="text-center mt-16">
         <Button asChild size="lg" className="btn-capsule shadow-glow">
           <Link href="/projects">

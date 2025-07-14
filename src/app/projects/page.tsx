@@ -25,9 +25,11 @@ export default function AllProjectsPage() {
             </p>
           </div>
 
-          {projects.map((project, index) => (
-            <ProjectDetailed key={project.title} project={project} index={index} />
-          ))}
+          <div className="space-y-24">
+            {projects.map((project, index) => (
+              <ProjectDetailed key={project.title} project={project} index={index} />
+            ))}
+          </div>
         </SectionWrapper>
       </main>
       <Footer />
