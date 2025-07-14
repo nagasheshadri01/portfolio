@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import { Code2, Server, BrainCircuit, Blocks } from "lucide-react";
 import React from "react";
+import Image from "next/image";
 
 const skillCategories = [
   {
@@ -50,10 +51,6 @@ export default function Skills() {
   return (
     <SectionWrapper id="skills">
        <div className="relative">
-        <div
-            className="pointer-events-none absolute z-0 top-0 left-1/2 -translate-x-1/2 w-full h-[420px]"
-            style={{ background: "radial-gradient(circle 650px at 50% -10%, hsl(var(--primary) / 0.2), hsl(var(--background)) 85%)" }}
-        />
         <div className="text-center mb-12 relative z-10">
             <h2 className="text-4xl font-bold font-headline mb-4">My Tech Toolbox</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
