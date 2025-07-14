@@ -66,7 +66,9 @@ export default function Skills() {
             <motion.div
                 key={category.title}
                 variants={itemVariants}
-                className="relative flex flex-row items-center bg-card rounded-2xl p-8 shadow-lg overflow-hidden min-h-[180px] border-2 border-transparent hover:scale-105 hover:shadow-glow transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="relative flex flex-row items-center bg-card rounded-2xl p-8 shadow-lg overflow-hidden min-h-[180px] border-2 border-transparent hover:shadow-glow"
             >
                 <div className="relative w-20 h-20 mr-6 flex-shrink-0 flex items-center justify-center">
                     {category.icon}
