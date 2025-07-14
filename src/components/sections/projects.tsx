@@ -52,7 +52,7 @@ export const ProjectDetailed = ({ project, index }: { project: any, index: numbe
       </motion.div>
       <motion.div 
         variants={itemVariants} 
-        className="relative z-10 bg-card/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20 shadow-lg lg:absolute lg:bottom-12 lg:left-12 lg:w-1/2"
+        className="relative z-10 bg-card/80 backdrop-blur-sm p-6 rounded-lg border border-primary/20 shadow-lg lg:absolute lg:bottom-12 lg:left-12 lg:w-1/2"
       >
         {project.featured && <p className="text-primary font-semibold mb-2">Featured Project</p>}
         <h3 className="text-2xl lg:text-3xl font-bold font-headline mb-4">{project.title}</h3>
