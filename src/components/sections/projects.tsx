@@ -24,7 +24,7 @@ const projects = [
   {
     title: "LuxeEstate",
     description: "A luxury real estate platform with immersive property tours and advanced filtering.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://placehold.co/1200x800.png",
     tags: ["React", "Next.js", "Tailwind CSS", "Prisma"],
     liveLink: "#",
     githubLink: "#",
@@ -42,7 +42,7 @@ const projects = [
   {
     title: "WellnessPortal",
     description: "A health and wellness tracking dashboard with personalized meal and workout plans.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://placehold.co/1200x800.png",
     tags: ["Vue.js", "Chart.js", "Node.js"],
     liveLink: "#",
     githubLink: "#",
@@ -60,7 +60,7 @@ const projects = [
   {
     title: "EcoTrack",
     description: "An app for tracking personal carbon footprint and promoting sustainable habits.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://placehold.co/1200x800.png",
     tags: ["React Native", "Firebase", "API"],
     liveLink: "#",
     githubLink: "#",
@@ -153,7 +153,7 @@ export default function Projects() {
         viewport={{ once: true, amount: 0.1 }}
       >
         {otherProjects.map((project, index) => {
-          // Fancy layout for even-indexed projects
+          // Odd-numbered projects (0, 2, 4...) get the elaborate layout
           if (index % 2 === 0) {
             return (
               <motion.div 
@@ -164,7 +164,7 @@ export default function Projects() {
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                   <motion.div 
                     variants={itemVariants} 
-                    className={cn("relative", index % 4 === 0 ? "lg:order-first" : "lg:order-last")}
+                    className={cn("relative", index % 4 === 0 ? "lg:order-last" : "lg:order-first")}
                     whileHover={{ scale: 1.02 }}
                     transition={{ type: 'spring', stiffness: 300 }}
                   >
@@ -177,13 +177,13 @@ export default function Projects() {
                             height={800}
                             className={cn(
                               "relative rounded-xl border-2 border-primary/20 shadow-2xl transform hover:rotate-0 transition-transform duration-300",
-                              index % 4 === 0 ? "rotate-2" : "-rotate-2"
+                              index % 4 === 0 ? "-rotate-2" : "rotate-2"
                             )}
                             data-ai-hint={project.aiHint}
                         />
                     </Link>
                   </motion.div>
-                  <motion.div variants={itemVariants} className={index % 4 === 0 ? "lg:order-last" : "lg:order-first"}>
+                  <motion.div variants={itemVariants} className={index % 4 === 0 ? "lg:order-first" : "lg:order-last"}>
                     <h3 className="text-3xl font-bold font-headline mb-4">{project.title}</h3>
                     <div className="bg-background/30 backdrop-blur-sm p-6 rounded-lg mb-6 border border-white/10">
                       <p className="text-muted-foreground">{project.description}</p>
@@ -208,7 +208,7 @@ export default function Projects() {
               </motion.div>
             )
           } 
-          // Card layout for odd-indexed projects
+          // Even-numbered projects (1, 3, 5...) get the compact card layout
           else {
             return (
               <motion.div key={project.title} variants={itemVariants} className="md:col-span-1">
