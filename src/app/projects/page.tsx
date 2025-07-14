@@ -1,5 +1,6 @@
 
-import { ProjectDetailed, projects } from "@/components/sections/projects";
+import { ProjectDetailed } from "@/components/sections/projects";
+import { projects } from "@/lib/project-data";
 import SectionWrapper from "@/components/ui/section-wrapper";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";

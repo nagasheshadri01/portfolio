@@ -9,37 +9,7 @@ import { Github, Link as LinkIcon, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
-
-export const projects = [
-  {
-    title: "Student Companion",
-    description: "An all-in-one app for students to manage schedules, assignments, and notes, enhancing productivity and organization.",
-    image: "https://placehold.co/1200x800.png",
-    tags: ["Flutter", "Firebase", "Dart", "GetX"],
-    liveLink: "#",
-    githubLink: "#",
-    featured: true,
-    aiHint: "student productivity"
-  },
-  {
-    title: "WellnessPortal",
-    description: "A health and wellness tracking dashboard with personalized meal and workout plans.",
-    image: "https://placehold.co/1200x800.png",
-    tags: ["Vue.js", "Chart.js", "Node.js"],
-    liveLink: "#",
-    githubLink: "#",
-    aiHint: "health dashboard"
-  },
-  {
-    title: "AiCareer",
-    description: "AI career path suggestion tool based on user skills and interests.",
-    image: "https://placehold.co/600x400.png",
-    tags: ["AI", "React", "Python", "Scikit-learn"],
-    liveLink: "#",
-    githubLink: "#",
-    aiHint: "career guidance"
-  },
-];
+import { projects } from "@/lib/project-data";
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -56,13 +26,13 @@ const itemVariants = {
 
 export const ProjectDetailed = ({ project, index }: { project: any, index: number }) => (
   <motion.div
-    className="grid lg:grid-cols-2 gap-12 items-center mb-24 last:mb-0"
+    className="grid lg:grid-cols-2 gap-12 items-center"
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true, amount: 0.2 }}
     variants={containerVariants}
   >
-    <motion.div variants={itemVariants} className={cn(index % 2 === 0 ? "lg:order-last" : "")}>
+    <motion.div variants={itemVariants} className={cn(index % 2 !== 0 ? "lg:order-last" : "")}>
       {project.featured && <p className="text-primary font-semibold mb-2">Featured Project</p>}
       <h3 className="text-4xl font-bold font-headline mb-4">{project.title}</h3>
       <div className="bg-background/30 backdrop-blur-sm p-6 rounded-lg mb-6 border border-white/10 shadow-lg">
@@ -86,18 +56,18 @@ export const ProjectDetailed = ({ project, index }: { project: any, index: numbe
     </motion.div>
     <motion.div
       variants={itemVariants}
-      className="relative"
-      whileHover={{ scale: 1.02 }}
-      transition={{ type: 'spring', stiffness: 300 }}
+      className="relative group"
     >
-      <div className="absolute -inset-8 bg-primary/10 rounded-xl blur-2xl -z-10"></div>
+      <div className="absolute -inset-4 bg-primary/10 rounded-xl blur-2xl -z-10 group-hover:blur-3xl transition-all duration-300"></div>
       <Link href={project.liveLink} target="_blank">
           <Image
               src={project.image}
               alt={project.title}
               width={1200}
               height={800}
-              className="relative rounded-xl border-2 border-primary/20 shadow-2xl transition-transform duration-300"
+              className={cn(
+                "relative rounded-xl border-2 border-primary/20 shadow-2xl transition-transform duration-300",
+              )}
               data-ai-hint={project.aiHint}
           />
       </Link>
@@ -121,7 +91,7 @@ export default function Projects() {
         ))}
       </div>
       
-      <div className="text-center mt-16">
+      <div className="text-center mt-24">
         <Button asChild size="lg" className="btn-capsule shadow-glow">
           <Link href="/projects">
             View More <ArrowRight className="ml-2 h-5 w-5" />
