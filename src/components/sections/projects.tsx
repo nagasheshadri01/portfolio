@@ -128,7 +128,7 @@ export default function Projects() {
             whileHover={{ scale: 1.02 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
-            <div className="absolute -inset-4 bg-primary/10 rounded-xl blur-2xl animate-pulse"></div>
+            <div className="absolute -inset-4 bg-primary/10 rounded-xl blur-2xl animate-pulse -z-10"></div>
             <Link href={featuredProject.liveLink} target="_blank">
                 <Image
                     src={featuredProject.image}
