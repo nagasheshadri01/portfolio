@@ -26,62 +26,54 @@ const itemVariants = {
 
 export const ProjectDetailed = ({ project, index }: { project: any, index: number }) => (
   <motion.div
-    className="grid lg:grid-cols-2 gap-12 items-center"
+    className="flex justify-center"
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true, amount: 0.2 }}
     variants={containerVariants}
   >
-    <motion.div 
-      variants={itemVariants} 
-      className={cn(
-        "relative z-10",
-        index % 2 !== 0 ? "lg:order-last lg:ml-[-20%]" : "lg:mr-[-20%]"
-      )}
-    >
-      {project.featured && <p className="text-primary font-semibold mb-2">Featured Project</p>}
-      <h3 className="text-4xl font-bold font-headline mb-4">{project.title}</h3>
-      <div className="bg-card/50 backdrop-blur-sm p-6 rounded-lg mb-6 border border-primary/20 shadow-lg">
-        <p className="text-muted-foreground text-lg">{project.description}</p>
-      </div>
-      <div className="flex flex-wrap gap-3 mb-6">
-        {project.tags.map((tag) => (
-          <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary border-primary/20 text-sm">
-            {tag}
-          </Badge>
-        ))}
-      </div>
-      <div className="flex items-center gap-4">
-          <Link href={project.liveLink} target="_blank" className="inline-flex items-center gap-2 font-semibold text-foreground hover:text-primary transition-colors">
-            <LinkIcon className="h-5 w-5" /> Live Demo
-          </Link>
-          <Link href={project.githubLink} target="_blank" className="inline-flex items-center gap-2 font-semibold text-foreground hover:text-primary transition-colors">
-            <Github className="h-5 w-5" /> Source Code
-          </Link>
-      </div>
-    </motion.div>
-    <motion.div
-      variants={itemVariants}
-      className={cn(
-        "relative group w-full max-w-lg",
-        "justify-self-center lg:justify-self-auto",
-        index % 2 !== 0 ? "lg:order-first" : ""
-      )}
-    >
-      <div className="absolute -inset-4 bg-primary/10 rounded-xl blur-2xl -z-10 group-hover:blur-3xl transition-all duration-300"></div>
-      <Link href={project.liveLink} target="_blank" className="block">
-          <Image
-              src={project.image}
-              alt={project.title}
-              width={1000}
-              height={600}
-              className={cn(
-                "relative rounded-xl border-2 border-primary/20 shadow-2xl transition-transform duration-300 w-full",
-              )}
-              data-ai-hint={project.aiHint}
-          />
-      </Link>
-    </motion.div>
+    <div className="relative max-w-4xl w-full">
+      <motion.div
+        variants={itemVariants}
+        className="relative group w-full"
+      >
+        <Link href={project.liveLink} target="_blank" className="block">
+            <Image
+                src={project.image}
+                alt={project.title}
+                width={1000}
+                height={600}
+                className={cn(
+                  "relative rounded-xl border-2 border-primary/20 shadow-2xl transition-transform duration-300 w-full",
+                )}
+                data-ai-hint={project.aiHint}
+            />
+        </Link>
+      </motion.div>
+      <motion.div 
+        variants={itemVariants} 
+        className="relative z-10 bg-card/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20 shadow-lg lg:absolute lg:bottom-12 lg:left-12 lg:w-1/2"
+      >
+        {project.featured && <p className="text-primary font-semibold mb-2">Featured Project</p>}
+        <h3 className="text-2xl lg:text-3xl font-bold font-headline mb-4">{project.title}</h3>
+        <p className="text-muted-foreground mb-4">{project.description}</p>
+        <div className="flex flex-wrap gap-3 mb-6">
+          {project.tags.map((tag) => (
+            <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary border-primary/20 text-sm">
+              {tag}
+            </Badge>
+          ))}
+        </div>
+        <div className="flex items-center gap-4">
+            <Link href={project.liveLink} target="_blank" className="inline-flex items-center gap-2 font-semibold text-foreground hover:text-primary transition-colors">
+              <LinkIcon className="h-5 w-5" /> Live Demo
+            </Link>
+            <Link href={project.githubLink} target="_blank" className="inline-flex items-center gap-2 font-semibold text-foreground hover:text-primary transition-colors">
+              <Github className="h-5 w-5" /> Source Code
+            </Link>
+        </div>
+      </motion.div>
+    </div>
   </motion.div>
 );
 
