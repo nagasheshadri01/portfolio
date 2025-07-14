@@ -65,7 +65,7 @@ export default {
       },
       boxShadow: {
         'glow': '0 0 30px 0px rgba(168, 85, 247, 0.25)',
-        'glow-white': '0 0 30px 0px rgba(255, 255, 255, 0.15)',
+        'glow-white': '0 0 30px 0px rgba(255, 255, 255, 0.25)',
       },
       keyframes: {
         'accordion-down': {
