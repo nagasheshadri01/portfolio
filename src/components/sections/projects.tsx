@@ -6,14 +6,14 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github, Link as LinkIcon, Star } from "lucide-react";
+import { ArrowUpRight, Github, Link as LinkIcon } from "lucide-react";
 import Link from "next/link";
 
 const projects = [
   {
     title: "Student Companion",
     description: "An all-in-one app for students to manage schedules, assignments, and notes, enhancing productivity and organization.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://placehold.co/1200x800.png",
     tags: ["Flutter", "Firebase", "Dart", "GetX"],
     liveLink: "#",
     githubLink: "#",
@@ -56,6 +56,15 @@ const projects = [
     githubLink: "#",
     aiHint: "career guidance"
   },
+  {
+    title: "EcoTrack",
+    description: "An app for tracking personal carbon footprint and promoting sustainable habits.",
+    image: "https://placehold.co/600x400.png",
+    tags: ["React Native", "Firebase", "API"],
+    liveLink: "#",
+    githubLink: "#",
+    aiHint: "sustainability environment"
+  }
 ];
 
 
@@ -151,7 +160,7 @@ export default function Projects() {
                   </CardTitle>
                   <p className="text-muted-foreground text-sm flex-grow">{project.description}</p>
               </CardHeader>
-              <CardContent className="flex-grow">
+              <CardContent className="flex-grow pt-4">
                  <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary border-primary/20">
@@ -160,7 +169,7 @@ export default function Projects() {
                   ))}
                 </div>
               </CardContent>
-              <CardFooter className="pt-2 flex items-center gap-4">
+              <CardFooter className="pt-4 flex items-center justify-between">
                  <Link href={project.liveLink} target="_blank" className="text-sm font-semibold text-primary inline-flex items-center gap-1 group-hover:underline">
                     View Project <ArrowUpRight className="h-4 w-4" />
                 </Link>
@@ -175,4 +184,3 @@ export default function Projects() {
     </SectionWrapper>
   );
 }
-
